@@ -1,4 +1,4 @@
-"""User memberships in organizations."""
+"""User memberships in teams."""
 
 import roax.schema as s
 
@@ -7,13 +7,13 @@ from roax.resource import operation
 
 
 _schema = s.dict(
-    description = "User membership in an organization.",
+    description = "User membership in a team.",
     properties = {
         "id": s.uuid(
             description = "Identifies the membership.",
         ),
-        "organization_id": s.uuid(
-            description = "Identifies the organization.",
+        "team_id": s.uuid(
+            description = "Identifies the team.",
         ),
         "user_id": s.uuid(
             description = "Identifies the user.",
@@ -24,10 +24,10 @@ _schema = s.dict(
         ),
         "roles": s.set(
             items = s.str(enum = {"read", "submit", "admin", "owner"}),
-            description = "User role(s) in organization.",
+            description = "User role(s) in team.",
         ),
     },
-    required = "organization_id,user_id,sttus,roles",
+    required = "team_id,user_id,sttus,roles",
 )
 
 class Members(KaptosResource):

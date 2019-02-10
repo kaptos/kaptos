@@ -1,4 +1,4 @@
-"""Organizations of users and monitoring tasks within a geographic region."""
+"""Teams of users and monitoring tasks within a geographic region."""
 
 import kaptos.schema as ks
 import roax.schema as
@@ -8,16 +8,16 @@ from roax.resource import operation
 
 
 _schema = s.dict(
-    description = "Organization of users and monitoring tasks within a geographic region.",
+    description = "Team of users and monitoring tasks within a geographic region.",
     properties = {
         "id": s.uuid(
-            description = "Identifies the organization.",
+            description = "Identifies the team.",
         ),
         "name" = s.str(
-            description = "Name of the organization.",
+            description = "Name of the team.",
         ),
         "description" = s.str(
-            description = "Description of the organization.",
+            description = "Description of the team.",
         ),
         "area": ks.geojson_polygon(
             max_rings = 1,
@@ -25,20 +25,20 @@ _schema = s.dict(
         ),
         "visibility": s.str(
             enum = {"public", "private"}
-            description = "Organization's and its activities visibility.",
+            description = "Team visibility.",
         ),
     },
     required = "name,description,area,visibility",
 )
 
 
-class Organizations(KaptosResource):
+class Teams(KaptosResource):
     """TODO: Description."""
 
     schema = _schema
 
     def __init__(self):
-        super().__init__("organizations")
+        super().__init__("teams")
 
     # ---- create ------
     @operation(

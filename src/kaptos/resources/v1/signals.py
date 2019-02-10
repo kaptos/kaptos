@@ -1,4 +1,4 @@
-"""Detected transmissions, computed from station reception reports."""
+"""Detected signals, computed from station reception reports."""
 
 import kaptos.schema as ks
 import roax.schema as s
@@ -8,23 +8,23 @@ from roax.resource import operation
 
 
 _schema = s.dict(
-    description = "Detected transmission, corroborated by station signal reports.",
+    description = "Detected signal, corroborated by station signal reports.",
     properties = {
         "id": s.uuid(
-            description = "Identifies the transmission.",
+            description = "Identifies the signal.",
         ),
         "task_id": s.uuid(
-            description = "Identifies the task that transmission is for.",
+            description = "Identifies the task that signal is for.",
         ),
         "report_ids": s.set(
             items = s.uuid(),
             description = "Station receiption reports of the signal.",
         },
         "time": s.datetime(
-            description = "Date and time of the transmission.",
+            description = "Date and time of the signal.",
         ),
         "duration": s.int(
-            description = "Duration of transmission, in seconds.",
+            description = "Duration of signal, in seconds.",
             min_value = 1,
         ),
         "location": ks.geojson_point(
@@ -34,18 +34,18 @@ _schema = s.dict(
             description = "Circle error probable of location, in metres.",
         ),
         "recording_id": s.uuid(
-            description = "Identifies the recording of the transmission.",
+            description = "Identifies the recording of the signal.",
         )
     },
     required = "task_id,report_ids,time,duration,location,cep,recording_id",
 )
 
-class Transmissions(KaptosResource):
+class Signals(KaptosResource):
 
     schema = _schema
 
     def __init__(self):
-        super().__init__(name="transmissions")
+        super().__init__(name="signals")
 
     # ---- create ------
     @operation(
