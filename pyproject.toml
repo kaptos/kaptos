@@ -1,0 +1,34 @@
+[build-system]
+requires = ["poetry >= 0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38']
+
+[tool.poetry]
+name = "kaptos"
+version = "1.0.dev1"
+description = "."
+readme = "README.md"
+authors = ["Paul Bryan <pbryan@anode.ca>"]
+homepage = "https://github.com/kaptos/kaptos/"
+documentation = "https://github.com/kaptos/kaptos/wiki"
+license = "MIT"
+keywords = ["amateur", "radio", "direction", "finding"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Communications :: Ham Radio"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.7 <3.8"
+roax = "^1.5.2"
+roax-postgis = "^1.0"
+
+[tool.poetry.dev-dependencies]
+black = "^19.3b0"
+pre-commit = "^1.18"
+pytest = "^5.1"
+pytest-cov = "^2.7"
