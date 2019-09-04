@@ -7,23 +7,22 @@ from roax.resource import operation
 
 
 schema = s.dict(
-    description="Session with Kaptos service.",
+    description="Token issued from Kaptos service.",
     properties={
         "id": s.uuid(description="Identifies the session."),
-        "type": s.str(
-            enum={"station", "user"}, description="Resource type session is for."
-        ),
-        "ref": s.uuid(description="Identifies the station or user session is for."),
-        "created": s.datetime(description="Date and time session was created."),
-        "expires": s.datetime(description="Date and time session expires."),
+        "type": s.str(description="Token type.", enum={"session", "reset"}),
+        "value": s.str(description="Token value."),
+        "subject": s.uuid(description="Reference to subject of token."),
+        "created": s.datetime(description="Date and time token was created."),
+        "expires": s.datetime(description="Date and time token expires."),
     },
-    required={"type", "ref", "created"},
+    required={"type", "value", "subject", "created"},
 )
 
 
-class Sessions(kaptos.db.TableResource):
+class Tokens(kaptos.db.TableResource):
 
-    name = "sessions"
+    name = "tokens"
 
     schema = schema
 

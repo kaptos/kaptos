@@ -16,7 +16,6 @@ schema = s.dict(
         ),
         "name": s.str(description="Full name of the user."),
         "call_sign": s.str(description="Call sign of the user."),
-        "code": s.str(description="Password reset confirmation code sent to user."),
         "status": s.str(
             enum={"active", "suspended"}, description="Status of the user."
         ),

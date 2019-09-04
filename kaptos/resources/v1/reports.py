@@ -34,9 +34,6 @@ schema = s.dict(
         "nmea": s.str(
             description="$GPRMC NMEA sentence received from GPS at the time the signal was detected."
         ),
-        "recording_id": s.uuid(
-            description="Identifies the recording of reported signal."
-        ),
     },
     required={
         "task_id",

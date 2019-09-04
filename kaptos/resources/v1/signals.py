@@ -10,28 +10,19 @@ from roax.resource import operation
 schema = s.dict(
     description="Detected signal, computed from station reception reports.",
     properties={
-        "id": s.uuid(description="Identifies the signal."),
-        "task_id": s.uuid(description="Identifies the task that signal is for."),
+        "id": s.uuid(description="Identifies signal."),
+        "task_id": s.uuid(description="Identifies task that signal is for."),
         "report_ids": s.set(
-            description="Station receiption reports of the signal.", items=s.uuid()
+            description="Station receiption reports of signal.", items=s.uuid()
         ),
-        "time": s.datetime(description="Date and time of the signal."),
+        "time": s.datetime(description="Date and time of signal."),
         "duration": s.int(description="Duration of signal, in seconds.", minimum=1),
         "location": roax.geo.Point(
-            description="Computed location of the transmitting station."
+            description="Computed location of transmitting station."
         ),
         "cep": s.int(description="Circle error probable of location, in metres."),
-        "recording_id": s.uuid(description="Identifies the recording of the signal."),
     },
-    required={
-        "task_id",
-        "report_ids",
-        "time",
-        "duration",
-        "location",
-        "cep",
-        " recording_id",
-    },
+    required={"task_id", "report_ids", "time", "duration", "location", "cep"},
 )
 
 

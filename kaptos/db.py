@@ -3,6 +3,7 @@
 import roax.db
 import roax.postgresql
 import roax.postgis
+import roax.schema as s
 import uuid
 
 from kaptos.config import config
@@ -36,6 +37,13 @@ def _kwargs():
 database = roax.postgresql.Database(**_kwargs())
 
 
+adapters = {
+    **roax.postgis.adapters,
+    s.set: roax.db.Adapter(),
+    s.list: roax.db.Adapter(),
+}
+
+
 class Table(roax.db.Table):
     """Represents a Kaptos database table."""
 
@@ -44,7 +52,7 @@ class Table(roax.db.Table):
         :param name: Name of database table.
         :param schema: Schema of table columns.
         """
-        super().__init__(database, name, schema, "id", roax.postgis.adapters)
+        super().__init__(database, name, schema, "id", adapters)
 
 
 class TableResource(roax.db.TableResource):

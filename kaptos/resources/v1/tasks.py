@@ -11,7 +11,7 @@ schema = s.dict(
     description="Monitoring task.",
     properties={
         "id": s.uuid(description="Identifies the monitoring task."),
-        "organization_id": s.uuid(
+        "team_id": s.uuid(
             description="Identifies the organization the monitoring task managed under."
         ),
         "start_time": s.datetime(
@@ -27,7 +27,7 @@ schema = s.dict(
         "bandwidth": s.int(description="Monitoring bandwidth, in hertz."),
     },
     required={
-        "organization_id",
+        "team_id",
         "start_time",
         "end_time",
         "frequency",
