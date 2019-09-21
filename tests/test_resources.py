@@ -4,10 +4,10 @@ import kaptos.resources
 resources = {
     "members",
     "reports",
-    "sessions",
     "stations",
     "tasks",
     "teams",
+    "tokens",
     "signals",
     "users",
 }

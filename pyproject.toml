@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.black]
 line-length = 88
-target-version = ['py36', 'py37', 'py38']
+target-version = ['py37', 'py38']
 
 [tool.poetry]
 name = "kaptos"
@@ -24,8 +24,8 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = ">=3.7 <3.8"
-roax = "^1.5.2"
-roax-postgis = "^1.0"
+roax = "^2.0a4"
+roax-postgis = "^2.0a1"
 
 [tool.poetry.dev-dependencies]
 black = "^19.3b0"

@@ -45,13 +45,15 @@ adapters = {
 
 
 class Table(roax.db.Table):
-    """Represents a Kaptos database table."""
+    """
+    Represents a Kaptos database table.
+
+    Parameters:
+    • name: Name of database table.
+    • schema: Schema of table row.
+    """
 
     def __init__(self, name, schema):
-        """
-        :param name: Name of database table.
-        :param schema: Schema of table columns.
-        """
         super().__init__(database, name, schema, "id", adapters)
 
 
@@ -59,15 +61,17 @@ class TableResource(roax.db.TableResource):
     """Base class for Kaptos database resources."""
 
     def __init__(self):
-        """TODO: Description."""
-        super().__init__(Table(self.name, self.schema))
+        super().__init__(Table(self.__class__.__name__.lower(), self.schema))
 
     def create(self, _body):
         """
         Create resource item.
-        
-        :param _body: The resource item content.
-        :return: {"id": created item identifier}
+    
+        Parameters:
+        • _body: The resource item content.
+
+        Returns:
+        {"id": uuid}
         """
-        _body = {**_body, "id": uuid.uuid4()}
-        return super().create(_body["id"], _body)
+
+        return super().create(uuid.uuid4(), _body)

@@ -1,54 +1,50 @@
 """User memberships in teams."""
 
+import dataclasses
 import kaptos.db
 import roax.schema as s
 
 from roax.resource import operation
 
 
-schema = s.dict(
-    description="User membership in a team.",
-    properties={
-        "id": s.uuid(description="Identifies the membership."),
-        "team_id": s.uuid(description="Identifies the team."),
-        "user_id": s.uuid(description="Identifies the user."),
-        "status": s.str(
-            enum={"active", "suspended", "requested", "denied"},
-            description="Status of user's group membership.",
-        ),
-        "roles": s.set(
-            items=s.str(enum={"read", "submit", "admin", "owner"}),
-            description="User role(s) in team.",
-        ),
-    },
-    required={"team_id", "user_id", "status", "roles"},
-)
+@dataclasses.dataclass
+class Member:
+    """User membership in team."""
+
+    id: s.uuid(description="Identifies the membership.")
+    team_id: s.uuid(description="Identifies the team.")
+    user_id: s.uuid(description="Identifies the user.")
+    status: s.str(
+        description="Status of user's group membership.",
+        enum={"active", "suspended", "requested", "denied"},
+    )
+    roles: s.set(
+        description="User role(s) in team.",
+        items=s.str(enum={"read", "submit", "admin", "owner"}),
+    )
+
+    _required = "team_id user_id status roles"
+
+
+schema = s.dataclass(Member)
 
 
 class Members(kaptos.db.TableResource):
 
-    name = "members"
-
     schema = schema
 
-    # ---- create ------
-    @operation(
-        params={"_body": schema}, returns=s.dict({"id": schema.properties["id"]})
-    )
-    def create(self, _body):
+    @operation
+    def create(self, _body: schema) -> s.dict({"id": schema.attrs.id}):
         return super().create(_body)
 
-    # ----- read ------
-    @operation(params={"id": schema.properties["id"]}, returns=schema)
-    def read(self, id):
+    @operation
+    def read(self, id: schema.attrs.id) -> schema:
         return super().read(id)
 
-    # ----- update ------
-    @operation(params={"id": schema.properties["id"], "_body": schema}, returns=None)
-    def update(self, id, _body):
+    @operation
+    def update(self, id: schema.attrs.id, _body: schema) -> None:
         return super().update(id, _body)
 
-    # ----- delete ------
-    @operation(params={"id": schema.properties["id"]}, returns=None)
-    def delete(self, id):
+    @operation
+    def delete(self, id: schema.attrs.id) -> None:
         return super().delete(id)
