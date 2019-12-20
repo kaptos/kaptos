@@ -1,0 +1,10 @@
+[
+  { "id": 0, "callsign": "VX7XXW", "lat": 49.2377225, "lng": -123.1290096, "frequency":146.920, "interference": "board", "strength": "9", "time":"1576363419"},
+  { "id": 1, "callsign": "VX7XXX", "lat": 49.2654987, "lng": -122.7842752, "frequency":452.700, "interference": "narrow", "strength": "7", "time":"1576363519"},
+  { "id": 2, "callsign": "VX7XXY", "lat": 49.1389733, "lng": -122.7910588, "frequency":147.118, "interference": "board", "strength": "8", "time":"1576363121"},
+  { "id": 3, "callsign": "VX7XXZ", "lat": 49.0392183, "lng": -122.3212674, "frequency":442.310, "interference": "narrow", "strength": "6", "time":"1576263212"},
+  { "id": 4, "callsign": "VX7XXW", "lat": 49.2477225, "lng": -123.1390096, "frequency":146.920, "interference": "board", "strength": "9", "time":"1576363419"},
+  { "id": 5, "callsign": "VX7XXX", "lat": 49.2754987, "lng": -122.7842752, "frequency":452.700, "interference": "narrow", "strength": "7", "time":"1576363519"},
+  { "id": 6, "callsign": "VX7XXY", "lat": 49.1489733, "lng": -122.7810588, "frequency":147.118, "interference": "board", "strength": "8", "time":"1576363121"},
+  { "id": 7, "callsign": "VX7XXZ", "lat": 49.0492183, "lng": -122.3212674, "frequency":442.310, "interference": "narrow", "strength": "6", "time":"1576263212"}
+]
