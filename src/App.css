@@ -1,6 +1,54 @@
 #kaptos_root, html, body {
 	height:100%;
+	background: #FFFFFF;
 }
+
+#controlsContainer {
+	position: sticky;
+	top:0;
+	background: #FFFFFF;
+	padding: 10px;
+	height: 200px;
+}
+
+#listContainer {
+	background: #000000;
+	height: calc(100% - 100);
+}
+
+#infoContainer {
+	padding-bottom: 10px;
+	font-weight: 500;
+}
+
+#leftColumn {
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#filterContainer .popup-content {
+	width: 400px;
+}
+.Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+	background-color: #d1e6ff !important;
+	background-color: #FF0000 !important;
+	color: #4a90e2;
+}
+.Selectable .DayPicker-Day {
+	border-radius: 0 !important;
+}
+.Selectable .DayPicker-Day--start {
+	border-top-left-radius: 50% !important;
+	border-bottom-left-radius: 50% !important;
+}
+.Selectable .DayPicker-Day--end {
+	border-top-right-radius: 50% !important;
+	border-bottom-right-radius: 50% !important;
+	background-color: #4A90E2;
+    color: #F0F8FF;
+}
+
 .map-container {
   height: 100%;
   width: 100%;
@@ -12,19 +60,21 @@
 
 .btn {
   font-size: 12px;
+  margin-right: 10px;
 }
 
 .listItem:nth-of-type(even) {
-	background-image: linear-gradient(#333, #000);
+	background-image: linear-gradient(to left, #444, #111);
 }
 .listItem:nth-of-type(odd) {
-	background-image: linear-gradient(#111, #000);
+	background-image: linear-gradient(to left, #333, #000);
 }
 .listItem {
 	color: #FF0000;
 	display: block;
 	cursor: pointer;
 	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
 }
 
 .markerItem {
