@@ -5,3 +5,6 @@ __pycache__/
 .eggs
 .coverage
 .vscode
+.env
+kaptos/static/ui/kaptos.js
+node_modules/

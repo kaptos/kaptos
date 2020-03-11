@@ -1,0 +1,138 @@
+#kaptos_root, html, body {
+	height:100%;
+	background: #FFFFFF;
+}
+
+#controlsContainer {
+	position: sticky;
+	top:0;
+	background: #FFFFFF;
+	padding: 10px;
+	height: 200px;
+}
+
+#listContainer {
+	background: #000000;
+	height: calc(100% - 100);
+}
+
+#infoContainer {
+	padding-bottom: 10px;
+	font-weight: 500;
+}
+
+#leftColumn {
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#filterContainer .popup-content {
+	width: 400px;
+}
+.Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+	background-color: #d1e6ff !important;
+	background-color: #FF0000 !important;
+	color: #4a90e2;
+}
+.Selectable .DayPicker-Day {
+	border-radius: 0 !important;
+}
+.Selectable .DayPicker-Day--start {
+	border-top-left-radius: 50% !important;
+	border-bottom-left-radius: 50% !important;
+}
+.Selectable .DayPicker-Day--end {
+	border-top-right-radius: 50% !important;
+	border-bottom-right-radius: 50% !important;
+	background-color: #4A90E2;
+    color: #F0F8FF;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+
+.map-ref {
+  height: 100%;
+}
+
+.btn {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.listItem:nth-of-type(even) {
+	background-image: linear-gradient(to left, #444, #111);
+}
+.listItem:nth-of-type(odd) {
+	background-image: linear-gradient(to left, #333, #000);
+}
+.listItem {
+	color: #FF0000;
+	display: block;
+	cursor: pointer;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
+}
+
+.markerItem {
+	background-color: #000000;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	display: inline-block;
+	text-align: center;
+}
+
+.markerItem:hover {
+	background-color: #333333;
+}
+
+.markerItemIcon {
+	color: #FF0000;
+	font-size: 15px;
+	padding-top: 7px;
+}
+
+
+.strength1 {
+	color: #ffe6e6;
+}
+
+.strength2 {
+	color: #ffcccc;
+}
+
+.strength3 {
+	color: #ffb3b3;
+}
+
+.strength4 {
+	color: #ff9999;
+}
+
+.strength5 {
+	color: #ff8080;
+}
+
+.strength6 {
+	color: #ff6666;
+}
+
+.strength7 {
+	color: #ff8000;
+}
+
+.strength8 {
+	color: #ff9900;
+}
+
+.strength9 {
+	color: #ff3300;
+}
+
+.strength10 {
+	color: #ff0000;
+}
